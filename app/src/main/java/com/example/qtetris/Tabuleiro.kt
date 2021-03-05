@@ -1,6 +1,7 @@
 package com.example.qtetris
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,7 +18,9 @@ class Tabuleiro : AppCompatActivity() {
     val LINHA = 36
     val COLUNA = 26
     var running = true
-    var speed:Long = 300
+    var speed = longArrayOf(500,350,100)
+    var speed_value = 0
+    var pontuacao = 0
 
     var peca = Pecas(1)
 
@@ -35,6 +38,9 @@ class Tabuleiro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_tabuleiro)
+
+        var config = getSharedPreferences("${R.string.app_name}_configuracoes", Context.MODE_PRIVATE);
+        speed_value = config.getInt("dificuldade", 1);
 
 
         binding.apply {
@@ -59,6 +65,10 @@ class Tabuleiro : AppCompatActivity() {
             girarButton.setOnClickListener{
                 peca.verificaRotate(board)
             }
+
+            buttonPause.setOnClickListener{
+                pauseGame()
+            }
         }
 
         var gridboard =  findViewById<GridLayout>(R.id.gridboard)
@@ -74,10 +84,24 @@ class Tabuleiro : AppCompatActivity() {
         }
         gameRun()
     }
+
+    fun pauseGame(){
+        if(running){
+            running = false;
+            var intent = Intent(this, MainActivity::class.java);
+            intent.putExtra("pause", true);
+            startActivityForResult(intent, 7);
+        }else{
+            running = true;
+            gameRun();
+        }
+    }
+
+
     fun gameRun(){
         Thread{
             while(running){
-                Thread.sleep(speed)
+                Thread.sleep(speed[speed_value])
                 runOnUiThread{
                     for(i in 0 until LINHA){
                         for(j in 0 until COLUNA){
@@ -114,4 +138,5 @@ class Tabuleiro : AppCompatActivity() {
             }
         }.start()
     }
+
 }

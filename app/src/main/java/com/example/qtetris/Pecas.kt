@@ -1,11 +1,17 @@
 package com.example.qtetris
 
+import android.content.Intent
+import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.core.content.ContextCompat.startActivity
+
 class Pecas {
     var x = 1
     var y = 11
     var linha = 4
     var coluna = 4
     var type: Int = 0
+    //var running = true
+    //var pontuacao = 0
 
     constructor(type: Int){
         this.type = type
@@ -139,7 +145,7 @@ class Pecas {
             }
         }
     }
-
+    
     fun rotarPeca(){
         var temp = Array(linha){
             Array(coluna){0}
@@ -164,5 +170,21 @@ class Pecas {
         }
         return board
     }
+    /*fun gameOver(){
+        var perdeu = false
+            for(i in 0 until linha){
+                for(j in 0 until coluna){
+                    if(this.peca[i][j] == 1 && this.peca[4][4] == 1)
+                        perdeu = true
+                }
+                if(perdeu){
+                    running = false;
+                  startActivity(this, GameOver::class.java)
+
+                }
+            }
+
+    }*/
+
 
 }

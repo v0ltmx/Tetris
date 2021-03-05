@@ -1,5 +1,6 @@
 package com.example.qtetris
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,21 +17,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
+        var params = intent.extras
+        var continuar = params?.getBoolean("pause")
+
+            if(continuar == true){
+                binding.botaoContinuar.visibility = View.VISIBLE
+            }
+            else{
+                binding.botaoContinuar.visibility = View.INVISIBLE
+            }
+
+
         binding.apply {
             botaoNovojogo.setOnClickListener {
                 var intent = Intent(this@MainActivity, Tabuleiro::class.java)
                 startActivity(intent)
             }
             botaoConfigurar.setOnClickListener {
-                var intent = Intent(this@MainActivity, Configurar::class.java)
-                startActivity(intent)
+                val intent = Intent(this@MainActivity, Configurar::class.java)
+                startActivityForResult(intent, 3)
             }
 
-            botaoContinuar.visibility = View.INVISIBLE
             botaoContinuar.setOnClickListener{
-                var intent = Intent(this@MainActivity, Tabuleiro::class.java)
-                intent.putExtra(Constantes.TABULEIRO, Constantes.CONTINUAR_JOGO)
-                startActivity(intent)
+               val intent = Intent()
+                setResult(Activity.RESULT_OK, intent)
+                finish()
             }
 
         }

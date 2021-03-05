@@ -9,36 +9,90 @@
         android:layout_height="match_parent"
         tools:context=".Configurar">
 
-        <Button
-            android:id="@+id/facilButton"
+
+        <TextView
+            android:id="@+id/textView_titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="212dp"
-            android:text="facil"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="152dp"
+            android:text="@string/dificuldade"
+            android:textSize="30sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.401"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/medioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="65dp"
-            android:text="Medio"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+        <RadioGroup
+            android:id="@+id/radioGroup_dificuldade"
+            android:layout_width="414dp"
+            android:layout_height="278dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="248dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/facilButton" />
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <RadioButton
+                android:id="@+id/radioButton_facil"
+                android:layout_width="364dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/facil" />
+
+            <RadioButton
+                android:id="@+id/radioButton_medio"
+                android:layout_width="364dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/medio" />
+
+            <RadioButton
+                android:id="@+id/radioButton_dificil"
+                android:layout_width="364dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="24dp"
+                android:text="@string/dificil" />
+
+        </RadioGroup>
 
         <Button
-            android:id="@+id/dificilButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="41dp"
-            android:text="Dificil"
+            android:id="@+id/button_cancelar"
+            android:layout_width="166dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="24dp"
+            android:text="@string/cancelar"
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+            app:iconTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.058"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/medioButton" />
+            app:layout_constraintTop_toTopOf="@+id/button_salvar"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/button_salvar"
+            android:layout_width="166dp"
+            android:layout_height="54dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/salvar"
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+            app:iconTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/button_cancelar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.924" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

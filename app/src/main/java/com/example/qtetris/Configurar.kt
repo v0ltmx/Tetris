@@ -1,8 +1,11 @@
 package com.example.qtetris
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.RadioGroup
 import androidx.databinding.DataBindingUtil
 import com.example.qtetris.Constantes.Constantes
 import com.example.qtetris.Constantes.Dificuldades
@@ -13,7 +16,50 @@ class Configurar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
        binding = DataBindingUtil.setContentView(this,R.layout.activity_configurar)
+
+        val configuracoes = getSharedPreferences("${R.string.app_name}_configuracoes", Context.MODE_PRIVATE);
+        val editor = configuracoes.edit();
+        var dificuldade = 1;
+        var quantidade = 1;
+
+        binding.apply{
+            radioGroupDificuldade.setOnCheckedChangeListener { _: RadioGroup, _: Int ->
+                var dificuldade = 1;
+                if(binding.radioButtonFacil.isChecked){
+                    dificuldade = 0;
+                    editor.putInt("dificuldade", dificuldade).apply();
+                }else if(binding.radioButtonMedio.isChecked){
+                    editor.putInt("dificuldade", dificuldade).apply();
+                }else if(binding.radioButtonDificil.isChecked){
+                    dificuldade = 2;
+                    editor.putInt("dificuldade", dificuldade).apply();
+                }
+            }
+
+
+            buttonSalvar.setOnClickListener {
+                var intent = Intent();
+                intent.putExtra("SALVAR", "SALVAR");
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
+
+            buttonCancelar.setOnClickListener {
+                editor.putInt("record", 0).apply();
+                val intent = Intent();
+                editor.putInt("dificuldade", dificuldade).apply();
+                editor.putInt("total_pecas", quantidade).apply();
+                intent.putExtra("CANCELAR", "CANCELAR");
+                setResult(Activity.RESULT_CANCELED, intent);
+                finish();
+            }
+
+
+        }
+
+
     // em construção ...
+       /*
         binding.apply{
             facilButton.setOnClickListener {
                 finish()
@@ -26,29 +72,7 @@ class Configurar : AppCompatActivity() {
             }
         }
     }
+    */
 
-    override fun onStop(){
-        super.onStop()
-        val configuracoes = getSharedPreferences(Constantes.PREFS, Context.MODE_PRIVATE)
-        val edit = configuracoes.edit()
-
-        binding.apply {
-            if(facilButton!!.isClickable){
-                edit.putString(Dificuldades.DIFICULDADE, Dificuldades.FACIL).apply()
-                edit.commit()
-            }
-            if(medioButton!!.isClickable){
-                edit.putString(Dificuldades.DIFICULDADE, Dificuldades.MEDIO).apply()
-                edit.commit()
-                }
-            if(dificilButton!!.isClickable){
-                edit.putString(Dificuldades.DIFICULDADE, Dificuldades.DIFICIL).apply()
-                edit.commit()
-            }
-            else{
-                edit.remove(Dificuldades.DIFICULDADE)
-                edit.commit()
-            }
-        }
     }
 }
