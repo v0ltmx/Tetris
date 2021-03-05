@@ -36,27 +36,29 @@ class Tabuleiro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_tabuleiro)
 
-        binding.moveEsquerdaButton.setOnClickListener{
-            if(peca.verificaColisaoMoveLeft(board)){
-                peca.moveLeft()
+
+        binding.apply {
+            moveEsquerdaButton.setOnClickListener{
+                if(peca.verificaColisaoMoveLeft(board)){
+                    peca.moveLeft()
+                }
             }
-        }
 
-        binding.moveDireitaButton.setOnClickListener{
-            if(peca.verificaColisaoMoveRight(board)){
-                peca.moveRight()
+            moveDireitaButton.setOnClickListener{
+                if(peca.verificaColisaoMoveRight(board)){
+                    peca.moveRight()
+                }
             }
-        }
 
-        binding.moveBaixoButton.setOnClickListener{
-            if(peca.verificaColisaoMoveDown(board)){
-                peca.moveDown()
+            moveBaixoButton.setOnClickListener{
+                if(peca.verificaColisaoMoveDown(board)){
+                    peca.moveDown()
+                }
             }
-        }
 
-
-        binding.girarButton.setOnClickListener{
-            peca.verificaRotate(board)
+            girarButton.setOnClickListener{
+                peca.verificaRotate(board)
+            }
         }
 
         var gridboard =  findViewById<GridLayout>(R.id.gridboard)
