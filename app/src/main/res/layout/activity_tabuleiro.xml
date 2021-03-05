@@ -24,67 +24,60 @@
                 android:id="@+id/moveBaixoButton"
                 android:layout_width="119dp"
                 android:layout_height="55dp"
-                android:layout_marginBottom="280dp"
+                android:layout_marginBottom="316dp"
                 android:text="BAIXO"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/moveDireitaButton"
-                app:layout_constraintHorizontal_bias="0.446"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/moveEsquerdaButton"
                 tools:text="baixo" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/moveDireitaButton"
                 android:layout_width="119dp"
                 android:layout_height="55dp"
-                android:layout_marginBottom="336dp"
+                android:layout_marginBottom="372dp"
                 android:text="Direita"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.692"
-                app:layout_constraintStart_toEndOf="@+id/moveEsquerdaButton" />
+                app:layout_constraintHorizontal_bias="0.738"
+                app:layout_constraintStart_toEndOf="@+id/moveEsquerdaButton"
+                app:srcCompat="@drawable/dir" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/moveEsquerdaButton"
                 android:layout_width="119dp"
                 android:layout_height="55dp"
-                android:layout_marginStart="56dp"
-                android:layout_marginBottom="336dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginBottom="372dp"
                 android:text="Esquerda"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/esq" />
 
             <Button
                 android:id="@+id/girarButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="60dp"
-                android:layout_marginBottom="228dp"
+                android:layout_marginBottom="244dp"
                 android:text="Girar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/moveBaixoButton" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/moveBaixoButton"/>
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="1025dp"
-                android:layout_height="371dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/bg" />
-
-            <Button
+            <ImageButton
                 android:id="@+id/buttonPause"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="100dp"
+                android:layout_marginBottom="4dp"
                 android:text="pause"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.049"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/stop" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

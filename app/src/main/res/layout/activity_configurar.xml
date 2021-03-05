@@ -58,6 +58,12 @@
                 android:layout_marginBottom="24dp"
                 android:text="@string/dificil" />
 
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="584dp"
+                android:layout_height="272dp"
+                app:srcCompat="@drawable/home" />
+
         </RadioGroup>
 
         <Button
