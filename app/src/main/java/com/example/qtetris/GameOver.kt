@@ -46,23 +46,6 @@ class GameOver : AppCompatActivity() {
         }
 
 
-     //   binding.textViewPontuacaoValue.text = pontuacao.toString();
-      //  binding.textViewRecordValue.text = record.toString();
-/*
-        binding.buttonNovoJogo.setOnClickListener {
-            val intent = Intent(this, Tabuleiro::class.java);
-            startActivityForResult(intent, 1);
-            finish();
-        }*/
-
-/*
-        binding.buttonSair.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java);
-            startActivityForResult(intent, 2);
-            finish();
-        }*/
-
-
 /*
         if(pontos != null && pontos > record){
             txtNewRecord.text = getResources().getString(R.string.new_record) + " " + pontos
