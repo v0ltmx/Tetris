@@ -1,3 +1,3 @@
 # Tetris
-:warning: Prototype :warning: :zap:
+:warning: :zap:
 in build..
